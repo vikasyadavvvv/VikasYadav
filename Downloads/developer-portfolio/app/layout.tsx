@@ -7,7 +7,7 @@ import ThreeBackground from "./components/three-background"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Alex Johnson - Full-Stack Developer Portfolio",
+  title: "Vikas Yadav - Full-Stack Developer Portfolio",
   description:
     "Professional portfolio showcasing full-stack development skills, projects, and experience with modern web technologies.",
     generator: 'v0.dev'

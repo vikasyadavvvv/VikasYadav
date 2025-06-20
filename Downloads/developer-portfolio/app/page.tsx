@@ -24,9 +24,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Navbar from "./components/navbar"
-import ThreeBackground from "./components/three-background" 
 import ProjectCard from "./components/project-card"
 
 export default function Portfolio() {
@@ -160,8 +158,6 @@ export default function Portfolio() {
   id="home"
   className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
 >
-  <ThreeBackground />
-
   <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
     <motion.div
       initial={{ opacity: 0, y: 50 }}

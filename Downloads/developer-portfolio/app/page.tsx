@@ -158,6 +158,7 @@ export default function Portfolio() {
   id="home"
   className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
 >
+
   <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
     <motion.div
       initial={{ opacity: 0, y: 50 }}

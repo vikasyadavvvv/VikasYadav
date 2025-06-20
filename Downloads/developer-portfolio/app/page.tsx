@@ -148,51 +148,66 @@ export default function Portfolio() {
   return (
     
     <div
-      className={`min-h-screen transition-colors duration-300 ${
+
+      className={`transition-colors duration-300  min-h-[100dvh]${
         darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Hero Section */}
-<section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+<section
+  id="home"
+  className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+>
   <ThreeBackground />
-  <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+
+  <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.5 }}
       className="space-y-6"
     >
-      {/* Enhanced Name with Subtle Shadow */}
-      <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2 drop-shadow-lg">
+      {/* Name Heading */}
+      <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2 drop-shadow-lg">
         Vikas Yadav
       </h1>
 
-      {/* Professional Title with Animated Underline */}
+      {/* Title & Underline */}
       <div className="relative inline-block">
-        <p className={`text-xl md:text-2xl lg:text-3xl font-medium ${darkMode ? "text-gray-200" : "text-gray-700"}`}>
+        <p
+          className={`text-base sm:text-xl md:text-2xl lg:text-3xl font-medium ${
+            darkMode ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
           Full-Stack Developer & Creative Technologist
         </p>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ delay: 1, duration: 0.8 }}
-          className={`h-0.5 mt-1 ${darkMode ? "bg-gradient-to-r from-blue-400 to-purple-500" : "bg-gradient-to-r from-blue-500 to-purple-600"}`}
+          className={`h-0.5 mt-1 ${
+            darkMode
+              ? "bg-gradient-to-r from-blue-400 to-purple-500"
+              : "bg-gradient-to-r from-blue-500 to-purple-600"
+          }`}
         />
       </div>
 
-      {/* Professional Summary */}
+      {/* Summary */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className={`max-w-2xl mx-auto text-lg md:text-xl ${darkMode ? "text-gray-300" : "text-gray-600"}`}
+        className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed ${
+          darkMode ? "text-gray-300" : "text-gray-600"
+        }`}
       >
         Building seamless digital experiences with modern web technologies and innovative solutions.
       </motion.p>
 
-      {/* Enhanced Call-to-Action Buttons */}
+      {/* CTA Buttons */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -202,48 +217,58 @@ export default function Portfolio() {
         <Button
           size="lg"
           className="relative overflow-hidden group px-8 py-3 text-lg font-medium"
-          onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() =>
+            document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })
+          }
         >
           <span className="relative z-10">View My Projects</span>
           <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 group-hover:from-blue-600 group-hover:to-purple-700 transition-all duration-300" />
         </Button>
 
-        <Button 
+        <Button
           variant={darkMode ? "secondary" : "outline"}
           size="lg"
           className="px-8 py-3 text-lg font-medium border-2"
-          onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() =>
+            document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
+          }
         >
           <Mail className="w-5 h-5 mr-2" />
           Contact Me
         </Button>
       </motion.div>
 
-      {/* Tech Stack Badges */}
+      {/* Optional: Tech Stack Badges or tags */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.1 }}
         className="flex flex-wrap justify-center gap-2 pt-8 max-w-2xl mx-auto"
       >
-
+        {/* Add badges here if needed */}
       </motion.div>
     </motion.div>
   </div>
 
-  {/* Enhanced Scroll Indicator */}
+  {/* Scroll Indicator */}
   <motion.div
     animate={{ y: [0, 15, 0] }}
     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+    className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
     onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
     aria-label="Scroll down"
   >
-    <div className={`w-8 h-12 border-2 ${darkMode ? "border-white/30" : "border-gray-400/30"} rounded-full flex justify-center items-start p-1`}>
+    <div
+      className={`w-7 h-11 sm:w-8 sm:h-12 border-2 ${
+        darkMode ? "border-white/30" : "border-gray-400/30"
+      } rounded-full flex justify-center items-start p-1`}
+    >
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        className={`w-1.5 h-3 rounded-full ${darkMode ? "bg-white/80" : "bg-gray-600/80"}`}
+        className={`w-1.5 h-3 rounded-full ${
+          darkMode ? "bg-white/80" : "bg-gray-600/80"
+        }`}
       />
     </div>
   </motion.div>

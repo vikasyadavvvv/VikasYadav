@@ -213,7 +213,7 @@ export default function Portfolio() {
       >
         <Button
           size="lg"
-          className="relative overflow-hidden group px-8 py-3 text-lg font-medium"
+          className={`relative overflow-hidden group px-8 py-3 text-lg font-medium ${darkMode?"text-white":"text-black"}`}
           onClick={() =>
             document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })
           }
@@ -225,7 +225,7 @@ export default function Portfolio() {
         <Button
           variant={darkMode ? "secondary" : "outline"}
           size="lg"
-          className="px-8 py-3 text-lg font-medium border-2"
+          className={`px-8 py-3 text-lg font-medium border-2 ${darkMode?"text-black":"text-black"}`}
           onClick={() =>
             document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
           }
@@ -242,7 +242,21 @@ export default function Portfolio() {
         transition={{ delay: 2.1 }}
         className="flex flex-wrap justify-center gap-2 pt-8 max-w-2xl mx-auto"
       >
-        {/* Add badges here if needed */}
+<span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
+  Problem Solver
+</span>
+
+<span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
+  Fast Learner
+</span>
+
+<span className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
+  Team Player
+</span>
+
+<span className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
+  Adaptable
+</span>
       </motion.div>
     </motion.div>
   </div>
@@ -324,10 +338,10 @@ export default function Portfolio() {
           { name: "TypeScript", icon: <img src="/typescript.png" className="w-10 h-10" alt="TypeScript" /> },
           { name: "Framer Motion", icon: <img src="/framermotion.png" className="w-10 h-10" alt="Framer Motion" /> },
           { name: "Next JS", icon: <img src="/next.png" className="w-10 h-10" alt="Framer Motion" /> },
-          { name: "Clerk for Authorization", icon: <img src="/clerk.png" className="w-10 h-10" alt="Framer Motion" /> },
+          { name: "Clerk", icon: <img src="/clerk.png" className="w-10 h-10" alt="Framer Motion" /> },
           { name: "Vercel", icon: <img src="/vercel.png" className="w-10 h-10" alt="Framer Motion" /> },
           { name: "Railway", icon: <img src="/railway.png" className="w-10 h-10" alt="Framer Motion" /> },
-          { name: "Netify", icon: <img src="/netifyy.png" className="w-10 h-10" alt="Framer Motion" /> },
+          { name: "Netlify", icon: <img src="/netlify.png" className="w-10 h-10" alt="Framer Motion" /> },
 
 
 
@@ -368,7 +382,7 @@ export default function Portfolio() {
           <div className="flex flex-col items-center text-center">
             <Code className="w-12 h-12 text-blue-400 mb-4" />
             <h4 className={`font-semibold text-lg mb-2 ${darkMode ? "text-white" : "text-black"}`}>Frontend Development</h4>
-            <p className={`text-sm ${darkMode ?"text-gray-300":"text-black" }`}>React, TypeScript, Tailwind CSS, Framer Motion</p>
+            <p className={`text-sm ${darkMode ?"text-white":"text-black" }`}>React, TypeScript, Tailwind CSS, Framer Motion</p>
           </div>
           <div className="flex flex-col items-center text-center">
             <Database className="w-12 h-12 text-green-400 mb-4" />

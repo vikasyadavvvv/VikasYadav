@@ -18,24 +18,27 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isImageOpen, setIsImageOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+ useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", checkMobile);
-    checkMobile();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  // ✅ Set initial states on load
+  handleScroll();
+  checkMobile();
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", checkMobile);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", checkMobile);
+  };
+}, []);
 
   const navItems = [
     { name: "Home", href: "#home" },

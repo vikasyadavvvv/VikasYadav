@@ -41,3 +41,10 @@
     --chart-5: 355 80% 70%;   /* soft red-pink */
   }
 }
+
+/* Fix overflow on entire layout */
+html,
+body {
+  overflow-x: hidden;
+}
+

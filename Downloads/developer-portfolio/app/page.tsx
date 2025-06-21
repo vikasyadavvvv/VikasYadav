@@ -145,19 +145,12 @@ export default function Portfolio() {
 
   return (
     
-  <div
-  className={`transition-colors duration-300 min-h-[100dvh] flex flex-col ${
-    darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
-  }`}
->
-
+<div className={`transition-colors duration-300 min-h-[100dvh] overflow-x-hidden ${darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Hero Section */}
- <section
-    id="home"
-    className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
-  >
+      <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+
 
   <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
     <motion.div
@@ -236,28 +229,30 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Optional: Tech Stack Badges or tags */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.1 }}
-        className="flex flex-wrap justify-center gap-2 pt-8 max-w-2xl mx-auto"
-      >
-<span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
-  Problem Solver
-</span>
+ <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 2.1 }}
+  className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center pt-8 max-w-2xl mx-auto"
+>
+  <span className="mx-auto bg-gradient-to-r from-emerald-400 to-green-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-105 cursor-default w-[140px] text-center">
+    Problem Solver
+  </span>
 
-<span className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
-  Fast Learner
-</span>
+  <span className="mx-auto bg-gradient-to-r from-indigo-400 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-105 cursor-default w-[140px] text-center">
+    Fast Learner
+  </span>
 
-<span className="bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
-  Team Player
-</span>
+  <span className="mx-auto bg-gradient-to-r from-pink-400 to-rose-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-105 cursor-default w-[140px] text-center">
+    Team Player
+  </span>
 
-<span className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 px-4 py-1 rounded-full text-sm font-medium shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:brightness-105 cursor-default">
-  Adaptable
-</span>
-      </motion.div>
+  <span className="mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-105 cursor-default w-[140px] text-center">
+    Adaptable
+  </span>
+</motion.div>
+
+
     </motion.div>
   </div>
 
@@ -286,7 +281,7 @@ export default function Portfolio() {
 </section>
 
      {/* About Section */}
-<section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative">
+      <section id="about" className="py-24 px-4 sm:px-6 lg:px-8">
   <div className="max-w-7xl mx-auto">
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -418,7 +413,7 @@ export default function Portfolio() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {projects.map((project, index) => (
               <ProjectCard key={project.title} project={project} delay={index * 0.2} darkMode={darkMode} />
             ))}
@@ -427,7 +422,7 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className={`py-24 px-4 sm:px-6 lg:px-8 ${darkMode ? "bg-gray-900/50" : "bg-gray-100"}`}>
+      <section id="services" className={`py-24 px-4 sm:px-6 lg:px-8 ${darkMode? "bg-gray-900/50":"bg-gray-100"}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -444,7 +439,7 @@ export default function Portfolio() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}

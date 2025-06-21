@@ -145,19 +145,19 @@ export default function Portfolio() {
 
   return (
     
-    <div
+  <div
+  className={`transition-colors duration-300 min-h-[100dvh] flex flex-col ${
+    darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
+  }`}
+>
 
-      className={`transition-colors duration-300  min-h-[100dvh]${
-        darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
-      }`}
-    >
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Hero Section */}
-<section
-  id="home"
-  className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
->
+ <section
+    id="home"
+    className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+  >
 
   <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
     <motion.div

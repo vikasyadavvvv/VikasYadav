@@ -49,27 +49,12 @@ export default function ProjectCard({ project, delay, darkMode }: ProjectCardPro
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute top-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-           <a
-  href={project.liveUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="View Live Project"
->
-  <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 p-2">
-    <ExternalLink className="w-4 h-4" />
-  </Button>
-</a>
-<a
-  href={project.githubUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="View GitHub Repository"
->
-  <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 p-2">
-    <Github className="w-4 h-4" />
-  </Button>
-</a>
-
+            <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 p-2">
+              <ExternalLink className="w-4 h-4" />
+            </Button>
+            <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 p-2">
+              <Github className="w-4 h-4" />
+            </Button>
           </div>
         </div>
         <CardContent className="p-8">

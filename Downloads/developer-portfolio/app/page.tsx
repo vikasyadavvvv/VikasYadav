@@ -225,7 +225,7 @@ export default function Portfolio() {
         <Button
           variant={darkMode ? "secondary" : "outline"}
           size="lg"
-          className={`px-8 py-3 text-lg font-medium border-2 ${darkMode?"text-black":"text-black"}`}
+          className={`px-8 py-3 text-lg font-medium border-2 border-black ${darkMode?"text-black":"text-black"}`}
           onClick={() =>
             document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
           }

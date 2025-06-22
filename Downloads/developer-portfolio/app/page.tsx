@@ -50,7 +50,7 @@ export default function Portfolio() {
   title: "IronMentor - Fitness AI",
   description:
     "A conversational AI fitness coach that generates personalized diet and workout plans based on user input. Built using modern AI APIs for real-time interaction and tailored health guidance.",
-  tech: ["Next.js", "Vapi", "Gemini AI", "TailwindCSS"],
+  tech: ["Next.js", "Vapi", "Gemini AI","Clerk", "TailwindCSS"],
   image: "/project2.png", // Replace with your actual image path
   liveUrl: "https://iron-mentor.vercel.app/", // Replace with the deployed app link
 }

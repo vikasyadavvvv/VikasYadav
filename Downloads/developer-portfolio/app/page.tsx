@@ -587,10 +587,10 @@ export default function Portfolio() {
       <Mail className="w-6 h-6 text-blue-400" />
     </div>
     <a
-      href="mailto:vy532555@email.com"
+      href="mailto:vy532555@gmail.com"
       className={`text-lg ${darkMode ? "text-gray-300" : "text-black"} hover:text-blue-500 transition-colors`}
     >
-      vy532555@email.com
+      vy532555@gmail.com
     </a>
   </div>
 
@@ -690,7 +690,7 @@ export default function Portfolio() {
       {/* LinkedIn */}
       <motion.a
         whileHover={{ scale: 1.1, rotate: -5 }}
-        href="https://www.linkedin.com/in/vikas-yadav"
+        href="https://www.linkedin.com/in/vikas-yadav-1916002a6"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn Profile"

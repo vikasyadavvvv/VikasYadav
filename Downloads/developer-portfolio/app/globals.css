@@ -46,5 +46,9 @@
 html,
 body {
   overflow-x: hidden;
+    overflow-y: auto;   /* ✅ allow vertical scroll */
+
 }
+
+
 

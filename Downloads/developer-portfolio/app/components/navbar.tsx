@@ -20,14 +20,17 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
  useEffect(() => {
   const handleScroll = () => {
-    setScrolled(window.scrollY > 50);
+    if (typeof window !== "undefined") {
+      setScrolled(window.scrollY > 50);
+    }
   };
 
   const checkMobile = () => {
-    setIsMobile(window.innerWidth < 768);
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+    }
   };
 
-  // ✅ Set initial states on load
   handleScroll();
   checkMobile();
 
@@ -48,13 +51,21 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     { name: "Contact", href: "#contact" },
   ];
 
-  const scrollToSection = (href: string) => {
+const scrollToSection = (href: string) => {
+  console.log("Scrolling to:", href);
+  setTimeout(() => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } else {
+      console.warn("Element not found for", href);
     }
-    setIsOpen(false);
-  };
+  }, 100); // Give DOM a moment to render if needed
+  setIsOpen(false);
+};
+
 
   return (
     <>
@@ -210,28 +221,40 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
       </motion.nav>
 
       {/* Instagram-like Image Modal */}
-      <Dialog open={isImageOpen} onOpenChange={setIsImageOpen}>
-        <DialogContent className="sm:max-w-md bg-transparent border-none shadow-none">
-          <div className="flex justify-center items-center h-full">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative"
-            >
-              <Image
-                src="/Profile.png"
-                alt="Vikas Yadav - Full View"
-                width={300}
-                height={300}
-                className="rounded-full object-cover border-4 border-white/20 shadow-xl"
-              />
+     <Dialog open={isImageOpen} onOpenChange={setIsImageOpen}>
+  <DialogContent
+    className="sm:max-w-md bg-transparent border-none shadow-none p-0"
+  >
+    {/* No default cancel button here */}
 
-            </motion.div>
-          </div>
-        </DialogContent>
-      </Dialog>
+    {/* You can optionally add your own close button here */}
+    <button
+      onClick={() => setIsImageOpen(false)}
+      className="absolute top-4 right-4 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 z-50"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+
+    <div className="flex justify-center items-center min-h-[300px] p-4">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <Image
+          src="/Profile.png"
+          alt="Vikas Yadav - Full View"
+          width={300}
+          height={300}
+          className="rounded-full object-cover border-4 border-white/20 shadow-xl"
+        />
+      </motion.div>
+    </div>
+  </DialogContent>
+</Dialog>
+
     </>
   );
 }

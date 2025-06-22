@@ -44,7 +44,6 @@ export default function Portfolio() {
    tech: ["React", "TailwindCSS", "Clerk", "Gemini AI", "Node.js", "Express", "Clerk", "MongoDB"],
   image: "/project1.png",
   liveUrl: "https://fit-for-hire-livid.vercel.app", // Replace with actual deployed link
-  githubUrl: "#", // Replace with actual GitHub repo link
 },
 
    {
@@ -54,7 +53,6 @@ export default function Portfolio() {
   tech: ["Next.js", "Vapi", "Gemini AI", "TailwindCSS"],
   image: "/project2.png", // Replace with your actual image path
   liveUrl: "https://iron-mentor.vercel.app/", // Replace with the deployed app link
-  githubUrl: "#", // Replace with your GitHub repo
 }
 ,
    {
@@ -64,7 +62,6 @@ export default function Portfolio() {
   tech: ["React", "TailwindCSS", "CoinGecko API", "Guardian API"],
   image: "/project3.png", // Replace with your actual image
   liveUrl: "https://cryptoradarr.netlify.app/", // Replace with deployed app link
-  githubUrl: "#", // Replace with GitHub repo link
 }
 
   ]
@@ -145,7 +142,7 @@ export default function Portfolio() {
 
   return (
     
-<div className={`transition-colors duration-300 min-h-[100dvh] overflow-x-hidden ${darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
+<div className={`transition-colors duration-300 min-h-[100dvh]  ${darkMode ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Hero Section */}
@@ -414,9 +411,16 @@ export default function Portfolio() {
           </motion.div>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} delay={index * 0.2} darkMode={darkMode} />
-            ))}
+       {projects.map((project, index) => (
+  <ProjectCard
+    key={`${project.title}-${index}`} // ✅ Unique key
+    project={project}
+    delay={index * 0.2}
+    darkMode={darkMode}
+  />
+))}
+
+
           </div>
         </div>
       </section>

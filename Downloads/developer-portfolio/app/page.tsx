@@ -59,7 +59,7 @@ export default function Portfolio() {
   title: "Crypto Radar",
   description:
     "A comprehensive cryptocurrency tracking platform featuring real-time data on market cap, price charts, 24h highs/lows, and global filtering in INR, USD, and EUR. Also integrates the latest crypto news using Guardian API.",
-  tech: ["React", "TailwindCSS", "CoinGecko API", "Guardian API"],
+  tech: ["React", "TailwindCSS","Redux", "CoinGecko API", "Guardian API"],
   image: "/project3.png", // Replace with your actual image
   liveUrl: "https://cryptoradarr.netlify.app/", // Replace with deployed app link
 }
@@ -291,9 +291,9 @@ export default function Portfolio() {
       <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
         About Me
       </h2>
-    <p className={`text-xl max-w-4xl mx-auto leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+    <p className={`text-xl max-w-4xl text-center mx-auto leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
   I’m a passionate <span className="font-semibold">full-stack developer</span> driven by the art of crafting 
-  <span className="font-semibold"> dynamic</span>, <span className="font-semibold">scalable</span>, and 
+<span className="font-semibold"> dynamic</span>, <span className="font-semibold">scalable</span>, and 
   <span className="font-semibold"> high-performance web applications</span> using the 
   <span className="font-semibold"> MERN stack</span>. With a strong focus on both 
   <span className="font-semibold">functionality</span> and <span className="font-semibold">aesthetics</span>, 
@@ -455,72 +455,93 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className={`py-24 px-4 sm:px-6 lg:px-8 ${darkMode? "bg-gray-900/50":"bg-gray-100"}`}>
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
-              Services
-            </h2>
-            <p className={`text-xl max-w-4xl mx-auto leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-              Comprehensive development services to bring your ideas to life
-            </p>
-          </motion.div>
+     <section
+  id="services"
+  className={`py-24 px-4 sm:px-6 lg:px-8 ${
+    darkMode ? "bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" : "bg-gradient-to-b from-white to-gray-100"
+  }`}
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-20"
+    >
+      <h2
+        className={`text-4xl md:text-5xl font-extrabold tracking-tight mb-4 ${
+          darkMode ? "text-white" : "text-gray-900"
+        }`}
+      >
+        Services
+      </h2>
+      <p
+        className={`text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed ${
+          darkMode ? "text-gray-300" : "text-gray-600"
+        }`}
+      >
+        Comprehensive development services to bring your ideas to life
+      </p>
+    </motion.div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="group h-full"
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      {services.map((service, index) => (
+        <motion.div
+          key={service.title}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -5 }}
+          className="group h-full"
+        >
+          <Card
+            className={`h-full rounded-2xl shadow-md border transition-all duration-300 ${
+              darkMode
+                ? "bg-white/5 border-white/10 hover:shadow-blue-500/20"
+                : "bg-white border-gray-200 hover:shadow-xl"
+            }`}
+          >
+            <CardContent className="p-6 sm:p-8">
+              <div
+                className={`inline-flex p-4 rounded-xl mb-6 transition-transform duration-300 group-hover:scale-105 ${
+                  darkMode
+                    ? "bg-gradient-to-tr from-blue-600/20 to-purple-500/20 text-blue-300"
+                    : "bg-gradient-to-tr from-blue-100 to-purple-100 text-blue-700"
+                }`}
               >
-                <Card
-                  className={`h-full ${
-                    darkMode
-                      ? "bg-white/5 border-white/10 hover:bg-white/10"
-                      : "bg-white border-gray-200 hover:shadow-xl"
-                  } transition-all duration-300`}
-                >
-                  <CardContent className="p-8">
-                    <div
-                      className={`inline-flex p-4 rounded-2xl mb-6 ${
-                        darkMode
-                          ? "bg-gradient-to-br from-blue-500/20 to-purple-600/20"
-                          : "bg-gradient-to-br from-blue-100 to-purple-100"
-                      }`}
-                    >
-                      <div className="text-blue-500">{service.icon}</div>
-                    </div>
-                    <h3 className={`text-2xl font-bold mb-4 ${darkMode ? "text-white" : "text-gray-900"}`}>
-                      {service.title}
-                    </h3>
-                    <p className={`mb-6 leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
-                      {service.description}
-                    </p>
-                    <div className="space-y-3">
-                      {service.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
-                          <span className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-500"}`}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <div className="text-3xl">{service.icon}</div>
+              </div>
+              <h3
+                className={`text-2xl font-semibold mb-3 tracking-tight ${
+                  darkMode ? "text-white" : "text-gray-900"
+                }`}
+              >
+                {service.title}
+              </h3>
+              <p
+                className={`mb-6 text-base leading-relaxed ${
+                  darkMode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                {service.description}
+              </p>
+              <div className="space-y-3">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 animate-pulse"></span>
+                    <span className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-500"}`}>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
 <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900/20 to-purple-900/20">

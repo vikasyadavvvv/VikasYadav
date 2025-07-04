@@ -45,6 +45,26 @@ export default function Portfolio() {
   image: "/project1.png",
   liveUrl: "https://fit-for-hire-livid.vercel.app", // Replace with actual deployed link
 },
+{
+  title: "React AI Code Generator",
+  description:
+"A web app that lets developers generate code, explain code, and view output — all in a sleek, responsive interface built with React, Tailwind CSS, and the Monaco editor. Powered by AI for natural language code generation and instant explanations.",
+  tech: [
+    "React",
+    "React Router",
+    "Tailwind CSS",
+    "React Icons",
+    "Axios",
+    "Node.js",
+    "Express.js",
+    "Gemini AI API (2.0 Flash)",
+    "@monaco-editor/react",
+    "Vite"
+  ],
+  image: "/ReactAI.jpg", // Replace with your actual image path
+  liveUrl: "https://react-ai-theta.vercel.app/" // Replace with deployed app link
+}
+,
 
    {
   title: "IronMentor - Fitness AI",
@@ -55,14 +75,7 @@ export default function Portfolio() {
   liveUrl: "https://iron-mentor.vercel.app/", // Replace with the deployed app link
 }
 ,
-   {
-  title: "Crypto Radar",
-  description:
-    "A comprehensive cryptocurrency tracking platform featuring real-time data on market cap, price charts, 24h highs/lows, and global filtering in INR, USD, and EUR. Also integrates the latest crypto news using Guardian API.",
-  tech: ["React", "TailwindCSS","Redux", "CoinGecko API", "Guardian API"],
-  image: "/project3.png", // Replace with your actual image
-  liveUrl: "https://cryptoradarr.netlify.app/", // Replace with deployed app link
-}
+   
 
   ]
 

@@ -585,44 +585,48 @@ export default function Portfolio() {
         <Card className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition duration-300">
           <Toaster position="top-right" reverseOrder={false} />
           <CardContent className="p-8 lg:p-10">
-            <h3 className={`text-3xl font-bold mb-8 ${darkMode ? "text-white" : "text-black"}`}>
-              Send Me a Message
-            </h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <Input
-                placeholder="Your Name"
-                name="name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-white/10 border-white/20 text-white h-12 text-lg placeholder:text-gray-400"
-              />
-              <Input
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-white/10 border-white/20 text-white h-12 text-lg placeholder:text-gray-400"
-              />
-              <Textarea
-                placeholder="Your Message"
-                name="message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={6}
-                className="bg-white/10 border-white/20 text-white text-lg resize-none placeholder:text-gray-400"
-              />
-              <Button
-                type="submit"
-                disabled={sending}
-                className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 h-12 text-lg font-semibold ${
-                  darkMode ? "text-white" : "text-black"
-                } ${sending ? "opacity-50 cursor-not-allowed" : ""}`}
-              >
-                {sending ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </CardContent>
+  <h3 className={`text-3xl font-bold mb-8 ${darkMode ? "text-white" : "text-black"}`}>
+    Send Me a Message
+  </h3>
+  <form className="space-y-6" onSubmit={handleSubmit}>
+    <Input
+      required
+      placeholder="Your Name"
+      name="name"
+      value={formData.name}
+      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+      className="bg-white/10 border-white/20 text-white h-12 text-lg placeholder:text-gray-400"
+    />
+    <Input
+      required
+      type="email"
+      placeholder="Your Email"
+      name="email"
+      value={formData.email}
+      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+      className="bg-white/10 border-white/20 text-white h-12 text-lg placeholder:text-gray-400"
+    />
+    <Textarea
+      required
+      placeholder="Your Message"
+      name="message"
+      value={formData.message}
+      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+      rows={6}
+      className="bg-white/10 border-white/20 text-white text-lg resize-none placeholder:text-gray-400"
+    />
+    <Button
+      type="submit"
+      disabled={sending}
+      className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 h-12 text-lg font-semibold ${
+        darkMode ? "text-white" : "text-black"
+      } ${sending ? "opacity-50 cursor-not-allowed" : ""}`}
+    >
+      {sending ? "Sending..." : "Send Message"}
+    </Button>
+  </form>
+</CardContent>
+
         </Card>
       </motion.div>
 
